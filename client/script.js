@@ -1,5 +1,5 @@
 // Environment configuration
-const API_BASE_URL = "http://127.0.0.1:5000";
+const API_BASE_URL = "https://empty-cup-7c9e.onrender.com";
 
 // API endpoints
 const API_ENDPOINTS = {
