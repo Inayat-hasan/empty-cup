@@ -1,0 +1,453 @@
+/* style.css */
+:root {
+  --primary-text-color: #333;
+  --secondary-text-color: #555;
+  --accent-color: #e91e63; /* Placeholder for shortlist icon active */
+  --border-color: #eee;
+  --card-bg: #fff;
+  --first-card-bg: #fff9c4; /* Unique background for the first card */
+  --icon-color: #757575;
+  --star-color-filled: #ffc107;
+  --star-color-empty: #e0e0e0;
+  --price-color: #4caf50;
+  --error-color: #f44336;
+  --success-color: #4caf50;
+  --loading-color: #2196f3;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  background-color: #f4f4f4;
+  color: var(--primary-text-color);
+  font-size: 14px; /* Base font size from image */
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #fff;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 30px; /* Adjust as per actual logo size */
+  height: 30px; /* Adjust as per actual logo size */
+  margin-right: 10px;
+  border-radius: 50%; /* Assuming a circular logo like in the image */
+  object-fit: cover;
+}
+
+.logo-text {
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--primary-text-color);
+}
+
+.menu-icon i {
+  font-size: 20px;
+  color: var(--icon-color);
+}
+
+.tabs {
+  display: flex;
+  justify-content: space-around;
+  background-color: #fff;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.tab-item {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 10px; /* Approx from image */
+  color: var(--icon-color);
+  padding: 5px 0;
+  flex-grow: 1;
+}
+
+.tab-item.active,
+.tab-item:hover {
+  color: #000; /* Color when tab is active or hovered */
+}
+
+.tab-item.active span,
+.tab-item:hover span {
+  font-weight: 500;
+}
+
+.tab-item i {
+  font-size: 18px; /* Icon size in tabs */
+  margin-bottom: 4px;
+}
+
+.designer-list-container {
+  padding: 0; /* No padding for the container itself */
+}
+
+.designer-card {
+  background-color: var(--card-bg);
+  margin: 0; /* Cards are flush against each other vertically */
+  padding: 20px;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  position: relative; /* For absolute positioning of action buttons */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.designer-card:hover {
+  background-color: var(--first-card-bg);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.designer-info {
+  flex-grow: 1;
+}
+
+.designer-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 5px 0;
+  color: var(--primary-text-color);
+}
+
+.designer-rating {
+  margin-bottom: 10px;
+}
+
+.designer-rating .fa-star {
+  font-size: 16px; /* Star icon size */
+}
+.designer-rating .filled {
+  color: var(--star-color-filled);
+}
+
+.designer-rating .empty {
+  color: var(--star-color-empty);
+}
+
+.designer-description {
+  font-size: 12px; /* Approx from image */
+  color: var(--secondary-text-color);
+  line-height: 1.4;
+  margin-bottom: 15px;
+  max-width: 80%; /* To avoid text running into button area on very narrow views before wrapping */
+}
+
+.designer-stats {
+  display: flex;
+  justify-content: flex-start; /* Align stats to the left */
+  gap: 20px; /* Space between stat items */
+  margin-bottom: 15px;
+}
+
+.stat-item {
+  text-align: left;
+}
+
+.stat-item strong {
+  display: block;
+  font-size: 16px; /* Size of numbers */
+  font-weight: 700;
+  color: var(--primary-text-color);
+}
+
+.stat-item span {
+  font-size: 10px; /* Size of labels like "Projects" */
+  color: var(--secondary-text-color);
+}
+
+.designer-price strong {
+  font-size: 18px; /* Size of price symbols */
+  font-weight: bold;
+  color: #000; /* Price color based on image */
+}
+
+.designer-contact p {
+  font-size: 14px;
+  color: var(--primary-text-color);
+  margin: 3px 0;
+  font-weight: 500;
+}
+
+.designer-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around; /* Evenly space out buttons */
+  width: 60px; /* Fixed width for the actions column */
+  padding-left: 10px; /* Space between info and actions */
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  bottom: 15px;
+  transition: all 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.action-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--icon-color);
+  font-size: 10px; /* Text size for action button labels */
+  transition: all 0.2s ease;
+}
+
+.action-button i {
+  font-size: 18px; /* Icon size for action buttons */
+  margin-bottom: 4px;
+}
+
+.action-button.shortlist-btn .fa-bookmark.shortlisted {
+  color: var(--accent-color); /* Active shortlist icon color */
+}
+
+.action-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.action-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  color: var(--accent-color);
+}
+
+.action-button i.fa-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Loading States */
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--border-color);
+  border-top: 4px solid var(--loading-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Error States */
+.error-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  color: var(--error-color);
+}
+
+.error-state i {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.retry-button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: var(--error-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.retry-button:hover {
+  background-color: #d32f2f;
+}
+
+/* Empty States */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  color: var(--secondary-text-color);
+}
+
+.empty-state i {
+  font-size: 48px;
+  margin-bottom: 16px;
+  color: var(--icon-color);
+}
+
+/* Toast Notifications */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 12px 24px;
+  border-radius: 4px;
+  color: white;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  animation: slideIn 0.3s ease, fadeOut 0.3s ease 2.7s;
+  z-index: 1000;
+}
+
+.toast.success {
+  background-color: var(--success-color);
+}
+
+.toast.error {
+  background-color: var(--error-color);
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Responsive Design */
+@media (min-width: 600px) {
+  /* Tablet and larger */
+  .tabs {
+    justify-content: center; /* Center tabs on larger screens */
+  }
+  .tab-item {
+    flex-grow: 0;
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+  .tab-item i {
+    font-size: 20px;
+  }
+  .designer-list-container {
+    max-width: 800px; /* Max width for content on larger screens */
+    margin: 20px auto;
+    padding: 0;
+    border-radius: 8px;
+    overflow: hidden; /* To ensure border-radius clips children */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  .designer-card {
+    /* No specific changes needed other than container, margin will be handled by container */
+    border-bottom: 1px solid var(--border-color); /* Ensure borders between cards */
+  }
+  .designer-card:last-child {
+    border-bottom: none; /* No border for the last card in larger views */
+  }
+
+  .designer-description {
+    max-width: none; /* Allow full width within the card on larger screens */
+  }
+  .designer-stats {
+    gap: 30px;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Desktop */
+  body {
+    font-size: 16px; /* Increase base font size for desktop */
+  }
+  header {
+    padding: 20px 40px;
+  }
+  .logo-text {
+    font-size: 26px;
+  }
+  .tab-item {
+    padding: 15px 30px;
+    font-size: 14px;
+  }
+  .tab-item i {
+    font-size: 22px;
+  }
+
+  .designer-card {
+    padding: 25px;
+  }
+
+  .designer-card h3 {
+    font-size: 22px;
+  }
+  .designer-rating .fa-star {
+    font-size: 18px;
+  }
+  .designer-description {
+    font-size: 14px;
+  }
+  .stat-item strong {
+    font-size: 18px;
+  }
+  .stat-item span {
+    font-size: 12px;
+  }
+  .designer-price strong {
+    font-size: 20px;
+  }
+  .designer-contact p {
+    font-size: 16px;
+  }
+  .designer-actions {
+    right: 20px;
+    top: 20px;
+    bottom: 20px;
+  }
+  .action-button i {
+    font-size: 20px;
+  }
+  .action-button {
+    font-size: 11px;
+  }
+}
