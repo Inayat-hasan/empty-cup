@@ -8,7 +8,7 @@ load_dotenv()
 
 app = Flask(__name__)
 
-CORS(app,resources={r"/*": {"origins": "https://radiant-fudge-67d295.netlify.app"}})
+CORS(app,resources={r"/*": {"origins": "https://cup-empty.netlify.app"}})
 
 db = connectDB()
 
