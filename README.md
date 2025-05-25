@@ -71,5 +71,15 @@ empty-cup/
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/empty-cup.git
+git clone https://github.com/Inayat-hasan/empty-cup.git
 cd empty-cup
+
+### 2. 
+
+Just open the docker desktop app.
+Then,
+
+### 3. Run this command
+
+```bash
+docker-compose up --build
