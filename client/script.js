@@ -1,5 +1,5 @@
 // Environment configuration
-const API_BASE_URL = "https://empty-cup-7c9e.onrender.com";
+const API_BASE_URL = "https://empty-cup-7c9e.onrender.com"; // when using docker "http://localhost:5000"
 
 // API endpoints
 const API_ENDPOINTS = {
